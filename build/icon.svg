@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <radialGradient id="glow" cx="0.2" cy="0.95" r="0.9">
+      <stop offset="0" stop-color="#5dbb63" stop-opacity="0.22"/>
+      <stop offset="0.6" stop-color="#5dbb63" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="sq"><rect x="100" y="100" width="824" height="824" rx="185"/></clipPath>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="#11120f"/>
+  <g clip-path="url(#sq)">
+    <rect x="100" y="100" width="824" height="824" fill="url(#glow)"/>
+    <g stroke="#23241f" stroke-width="3">
+      <path d="M100 232H924M100 364H924M100 496H924M100 628H924M100 760H924M100 892H924"/>
+      <path d="M232 100V924M364 100V924M496 100V924M628 100V924M760 100V924M892 100V924"/>
+    </g>
+  </g>
+  <rect x="102" y="102" width="820" height="820" rx="183" fill="none" stroke="#3d3e36" stroke-width="4"/>
+  <rect x="236" y="266" width="266" height="214" rx="10" fill="#5dbb63"/>
+  <path d="M338 320v106l92-53z" fill="#11120f"/>
+  <g fill="none" stroke="#ece8dc" stroke-width="12">
+    <rect x="528" y="272" width="254" height="202" rx="6"/>
+    <rect x="242" y="550" width="254" height="202" rx="6"/>
+    <rect x="528" y="550" width="254" height="202" rx="6"/>
+  </g>
+  <circle cx="740" cy="314" r="16" fill="#5dbb63"/>
+</svg>

@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-electron
+release
+.env
+.DS_Store
+
+# Fontshare fonts (ITF Free Font License: no redistribution) — `npm run fonts` downloads them
+src/fonts/Chubbo-*.woff2
+src/fonts/Supreme-*.woff2
+src/fonts/FFL.txt

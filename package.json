@@ -1,0 +1,86 @@
+{
+  "name": "sportsview",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n vite,app -c cyan,magenta \"vite\" \"npm:dev:app\"",
+    "dev:app": "wait-on tcp:127.0.0.1:5173 && npm run build:main && SPORTSVIEW_DEV=1 electron .",
+    "dev:web": "vite",
+    "build:main": "esbuild electron/main.ts electron/preload.ts --bundle --platform=node --format=cjs --external:electron --outdir=dist-electron --out-extension:.js=.cjs",
+    "build": "vite build && npm run build:main",
+    "typecheck": "tsc --noEmit",
+    "fonts": "node scripts/fonts.mjs",
+    "start": "npm run build && electron .",
+    "dist": "npm run build && electron-builder --mac --win -c.directories.output=$HOME/Library/Caches/sportsview-release",
+    "install-app": "scripts/install-app.sh"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "hls.js": "^1.7.3",
+    "mpegts.js": "^1.8.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^10.0.6",
+    "electron": "^44.7.1",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "wait-on": "^9.5.1"
+  },
+  "description": "Multiview de deportes en vivo (IPTV/HLS + addons de Stremio) como app de escritorio",
+  "main": "dist-electron/main.cjs",
+  "build": {
+    "appId": "com.fer.sportsview",
+    "productName": "SportsView",
+    "files": [
+      "dist/**",
+      "dist-electron/**",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "mac": {
+      "category": "public.app-category.sports",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
+      "identity": "-",
+      "hardenedRuntime": false,
+      "artifactName": "SportsView-${version}-mac.${ext}"
+    },
+    "afterPack": "build/after-pack.cjs",
+    "dmg": {
+      "artifactName": "SportsView-${version}-mac.${ext}"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "SportsView-${version}-windows-setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "createDesktopShortcut": true
+    }
+  }
+}
