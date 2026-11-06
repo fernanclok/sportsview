@@ -96,6 +96,6 @@ Las fuentes, el layout, los slots, los favoritos y los jugadores seguidos se gua
 
 Chubbo y Supreme son de [Fontshare](https://www.fontshare.com) y su licencia ([ITF Free Font License](https://www.fontshare.com/licenses/itf-ffl)) no permite redistribuir los archivos, así que **no vienen en el repo**: `npm run fonts` baja tu propia copia a `src/fonts/`. Sin ellas la app funciona igual con fuentes del sistema. Departure Mono (SIL OFL 1.1) sí viene incluida, e IBM Plex Mono llega por npm.
 
-**Stack:** Electron, React 19, Vite, TypeScript, hls.js y mpegts.js. El diseño usa la paleta de [fernando-portfolio](https://github.com/fernanclok/fernando-portfolio) con las tipografías Chubbo, Supreme, IBM Plex Mono y Departure Mono.
+**Stack:** Electron, React 19, Vite, TypeScript, hls.js y mpegts.js.
 
 > Proyecto personal. Las APIs de ESPN y Polymarket no son oficiales y pueden cambiar. La app no incluye contenido ni fuentes: usa las que tú agregues.
